@@ -1,0 +1,349 @@
+@font-face {
+    font-family: 'iatype';
+    src: url('iatype.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 2. TYPE FACE  */
+html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'iatype';
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+body 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'iatype'
+}
+
+/* This is the most important part to get the side-by-side look */
+.main-layout {
+    display: flex; /* Forces sidebar and content to be columns */
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed; /* Locks the menu on the left */
+    left: 0;
+    top: 0;
+    padding: 20px;
+    border-right: 1px solid #000;
+    background: #a4a7a7;
+}
+
+.sidebar h1 {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: rgb(15, 227, 51);
+    margin-bottom: 0px;
+    font-size: 0.9rem;
+}
+
+/* This pushes the images to the right so they don't go under the menu */
+.content {
+    margin-left: 250px; 
+  width: calc(100% - 250px);
+    padding: 0; /* Ensures images touch the very edge */
+}
+
+section {
+    margin-bottom: 0px; /* Big gap so you see one project at a time */
+}
+
+/* Darken background images to 80% opacity */
+.bg-section {
+    filter: brightness(0.9);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1 { font-size: 1.5rem; margin-bottom: 10px; }
+h2 { font-size: 1rem; margin-bottom: 20px; font-weight: normal; color: #555; }
+
+.main-art {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+/* This makes the link inside the h3 look exactly like normal text */
+.bottom-link a {
+    text-decoration: none; /* Removes the underline */
+    color: inherit;        /* Takes the color from the h3 (likely black) */
+    font-size: inherit;    /* Mirrors the h3 size exactly */
+    display: block;        /* Makes the whole line clickable */
+}
+
+/* Optional: Add a subtle change when hovering so people know it's a link */
+.bottom-link a:hover {
+    opacity: 0.7; 
+}
+
+/* Ensure your sidebar has enough space to push the link down if you want it at the bottom */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: column; /* This pushes the title to the top and the link to the bottom */
+    height: 100vh;
+    padding: 20px;
+}
+
+.overlay h1 {
+    background-color: rgb(15, 227, 51);
+    color: white;
+    /* Shrink-wraps the background to the text size */
+    display: table; 
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.overlay h2 {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgb(0, 0, 0);
+    /* Shrink-wraps the background to the text size */
+    display: table;
+    padding: 5px 15px;
+    font-size: 1rem;
+    text-align: right;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+/* Hamburger Menu Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 40px;
+    background: #a4a7a7;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(15, 227, 51);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Tablet (max 1024px) */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 280px;
+    }
+    
+    .content {
+        margin-left: 280px;
+        width: calc(100% - 280px);
+    }
+}
+
+/* Mobile View (max 768px) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+    
+    .main-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        height: 100vh;
+        width: 280px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        border-right: 1px solid #000;
+        overflow-y: auto;
+        padding-top: 70px;
+    }
+    
+    .sidebar.active {
+        left: 0;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    body.sidebar-open {
+        overflow: hidden;
+    }
+    
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .sidebar h3 {
+        margin-top: 0;
+        font-size: 1.1rem;
+    }
+    
+    .sidebar a {
+        padding: 12px 0;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    #nav-menu a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: rgb(15, 227, 51);
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    #nav-menu a:active {
+        background-color: rgba(15, 227, 51, 0.1);
+    }
+    
+    .bg-section {
+        min-height: 100vh;
+        height: auto;
+    }
+    
+    .overlay {
+        padding: 40px 20px;
+    }
+    
+    .overlay h1 {
+        font-size: 1.3rem;
+        padding: 8px 15px;
+        text-align: left;
+    }
+    
+    .overlay h2 {
+        font-size: 0.9rem;
+        padding: 5px 12px;
+        text-align: left;
+        max-width: 100%;
+    }
+    
+    h1 { font-size: 1.3rem; }
+    h2 { font-size: 0.9rem; }
+}
+
+/* Small Mobile (max 480px) */
+@media (max-width: 480px) {
+    .hamburger {
+        top: 15px;
+        left: 15px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .hamburger span {
+        height: 3px;
+    }
+    
+    .sidebar {
+        width: 100%;
+        left: -100%;
+    }
+    
+    .overlay {
+        padding: 30px 15px;
+    }
+    
+    .overlay h1 {
+        font-size: 1.1rem;
+        padding: 6px 12px;
+    }
+    
+    .overlay h2 {
+        font-size: 0.85rem;
+        padding: 4px 10px;
+    }
+    
+    h1 { font-size: 1.1rem; }
+    h2 { font-size: 0.85rem; }
+    
+    .content {
+        padding-top: 60px;
+    }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1440px) {
+    .sidebar {
+        width: 300px;
+    }
+    
+    .content {
+        margin-left: 300px;
+        width: calc(100% - 300px);
+    }
+}
+
+/* Shopify Product Grid Responsive Styles */
+.shopify-buy__product {
+    margin-bottom: 30px !important;
+}
+
+@media (max-width: 768px) {
+    .shopify-buy__products {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+    
+    .shopify-buy__product {
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .shopify-buy__products {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+}

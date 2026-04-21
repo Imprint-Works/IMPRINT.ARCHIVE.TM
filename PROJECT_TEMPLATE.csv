@@ -1,0 +1,77 @@
+Project Name,Project Description,Background Image File,Shopify Embed Code
+MESHD_mother_earth,meshd from south london and the madness they made,images/meshd_mother_earth/meshdart1.jpg,"<div id='collection-component-1771182178968'></div>
+<script type='text/javascript'>
+/*<![CDATA[*/
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'imprint-works.myshopify.com',
+      storefrontAccessToken: 'dec824592d198225b89ee8ff54f77d2e',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('collection', {
+        id: '669758095741',
+        node: document.getElementById('collection-component-1771182178968'),
+        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
+        options: {}
+      });
+    });
+  }
+})();
+/*]]>*/
+</script>"
+OLLIE_DOVE_diy,ollie loves doing it himself in his grans studio,images/ollie_dove_diy/ollieddiy1.jpg,"<div id='collection-component-1771183105018'></div>
+<script type='text/javascript'>
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'imprint-works.myshopify.com',
+      storefrontAccessToken: 'dec824592d198225b89ee8ff54f77d2e',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('collection', {
+        id: '666925334909',
+        node: document.getElementById('collection-component-1771183105018'),
+        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
+        options: {}
+      });
+    });
+  }
+})();
+</script>"
+ACT_UP_healthcare_not_warfare,no one should have to suffer down with big pharma,images/act_up_healthcare/actuphnw1.jpg,"[Your Shopify embed code here]"
+City_of_God,vibrant creative projects celebrating bold artistic vision,images/city_of_god/citygod.jpg,"[Your Shopify embed code here]"
