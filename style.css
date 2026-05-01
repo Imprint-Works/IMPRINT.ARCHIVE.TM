@@ -78,7 +78,7 @@ section {
     height: 100vh;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 
 h1 { font-size: 1.5rem; margin-bottom: 10px; }
